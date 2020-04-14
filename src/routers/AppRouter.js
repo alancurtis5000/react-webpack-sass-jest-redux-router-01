@@ -7,7 +7,7 @@ import TestPage from '../components/TestPage';
 const AppRouter = () => (
   <BrowserRouter >
     <Switch>
-      <Route path="/"  component={TestPage}/>
+      <Route path="/" exact component={TestPage}/>
       <Route path="/style" component={StyleGuidePage}/>
       <Route component={NotFoundPage} />
     </Switch>
