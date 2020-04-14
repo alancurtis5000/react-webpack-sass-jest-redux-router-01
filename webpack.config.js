@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = (env) => {
   const isProduction = env === 'production';
   const MiniCssExtract = new MiniCssExtractPlugin({filename:'styles.css'});
-  const Analyze = false ? new BundleAnalyzerPlugin() : ()=>{};
+  const Analyze = true ? new BundleAnalyzerPlugin() : ()=>{};
 
   return {
     entry: ['babel-polyfill', './src/index.js'],

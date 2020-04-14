@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeText } from '../actions/testPage';
+import isEmpty from 'lodash/isEmpty';
 
 class TestPage extends Component {
   constructor(props){
@@ -13,7 +14,8 @@ class TestPage extends Component {
   };
   
   logProps = () => {
-    console.log({props:this.props})
+    console.log({props:this.props});
+    console.log(isEmpty({}))
   }
 
   render() {
