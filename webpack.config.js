@@ -1,9 +1,11 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   const isProduction = env === 'production';
   const MiniCssExtract = new MiniCssExtractPlugin({filename:'styles.css'});
+  const Analyze = false ? new BundleAnalyzerPlugin() : ()=>{};
 
   return {
     entry: ['babel-polyfill', './src/index.js'],
@@ -46,7 +48,8 @@ module.exports = (env) => {
       ]
     },
     plugins:[
-      MiniCssExtract
+      MiniCssExtract,
+      Analyze
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
